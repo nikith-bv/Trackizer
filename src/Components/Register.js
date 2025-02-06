@@ -3,7 +3,8 @@ import React from 'react'
 
 const Register = () => {
   return (
-    <View style={styles.container}><TouchableOpacity style={[styles.button, {backgroundColor:'#000000',marginTop:305}]} onPress={()=>{alert('Button Pressed!!')}}>
+    <View style={styles.container}>
+      <TouchableOpacity style={[styles.button, {backgroundColor:'#000000',marginTop:305}]} onPress={()=>{alert('Button Pressed!!')}}>
     <Text style={{color:'#ffffff',fontSize: 18,fontWeight: 'bold',}}>Sign up with Apple</Text>
   </TouchableOpacity>
 

@@ -4,5 +4,9 @@
 
 2. 6-feb
   Email Signup page in Progress
+
+3. 6-feb
+  Email Signup Page completed
+
   
          
