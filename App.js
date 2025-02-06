@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Linking, Image,TouchableOpacity } from 'react-native';
 import Register from './src/Components/Register';
+import EmailSignUp from './src/Components/EmailSignUp';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Image source={require('./assets/logo.png')} style={styles.image}/>
       <StatusBar style="auto" />
-      <Register/>
+      <EmailSignUp/>
       </View>
   );
 }
