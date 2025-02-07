@@ -14,17 +14,17 @@ export default function EmailSignIn({navigate}) {
           <Text style={[styles.textStyle,{marginTop:18}]}>Password</Text>
           <TextInput style={[styles.textInput,{marginTop:5}]} placeholder='Enter Your Password' placeholderTextColor={"#666680"} keyboardType='email-address' autoCapitalize='none' secureTextEntry={true}></TextInput>
           
-          <View style={[styles.row,{marginTop:10}]}>
-            <Checkbox value={isChecked} onPress={setChecked}/>
-            <Text style={{marginLeft:5}}>Remember Me</Text>
-            <Text style={{alignItems:'flex-end'}}>Forgot Password</Text>
+          <View style={[styles.row,{marginTop:13}]}>
+            <Checkbox style={{borderRadius:8, height:24, width:24}}value={isChecked} onValueChange={setChecked}/>
+            <Text style={{marginLeft:5,fontSize:18,color:'#666680'}}>Remember Me</Text>
+            <Text style={{marginLeft:110,fontSize:18, color:'#666680'}}>Forgot Password</Text>
             
           </View>
           </View>
 
       <View style={styles.cont2}>
         <TouchableOpacity style={[styles.button,{backgroundColor:'#ff7966'}]} onPress={()=>alert("Button Pressed")}>
-          <Text style={[styles.text,{color:'#ffffff'}]}>Get started, it’s free!</Text>
+          <Text style={[styles.text,{color:'#ffffff'}]}>Sign In</Text>
         </TouchableOpacity>
 
         <Text style={{fontSize:20,marginTop:125, color:'#ffffff'}}>Don't have an account?</Text>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     cont2:{
       flex:1,
-      marginTop:20,
+      marginTop:32,
       //backgroundColor:'#ffffff',
       alignItems:'center',
       justifyContent:'flex-start'
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     },
     row:{
         flexDirection:'row',
-        justifyContent:'center'
+        alignItems:'center'
     }
 
 })

@@ -8,5 +8,11 @@
 3. 6-feb
   Email Signup Page completed
 
+4. 7-feb
+  Navigation through register and Email Signup components with Usestate hook
+
+5. 7-feb
+  Developed SignIn page + Navigation through the 3 components.
+
   
          
