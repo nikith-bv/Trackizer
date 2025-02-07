@@ -1,28 +1,36 @@
 import { StyleSheet, Text, TextInput, View,TouchableOpacity } from 'react-native'
-import React from 'react'
+import React,{useState} from 'react'
+import Checkbox from 'expo-checkbox';
 
-export default function EmailSignUp({navigate}) {
+export default function EmailSignIn({navigate}) {
+    
+    const [isChecked, setChecked] = useState(false)
+
   return (
-
     <View style={styles.mainContainer}>
       <View style={styles.container}>
-          <Text style={[styles.textStyle,{marginTop:150}]}>E-mail address</Text>
+          <Text style={[styles.textStyle,{marginTop:150}]}>Login</Text>
           <TextInput style={[styles.textInput,{marginTop:5}]} placeholder='Enter Your Email' placeholderTextColor={"#666680"} keyboardType='email-address' autoCapitalize='none'></TextInput>
           <Text style={[styles.textStyle,{marginTop:18}]}>Password</Text>
           <TextInput style={[styles.textInput,{marginTop:5}]} placeholder='Enter Your Password' placeholderTextColor={"#666680"} keyboardType='email-address' autoCapitalize='none' secureTextEntry={true}></TextInput>
           
-          <Text style={[styles.textStyle,{marginTop:15}]}>Use 8 or more characters with a mix of letters, numbers & symbols.</Text>
-      </View>
+          <View style={[styles.row,{marginTop:10}]}>
+            <Checkbox value={isChecked} onPress={setChecked}/>
+            <Text style={{marginLeft:5}}>Remember Me</Text>
+            <Text style={{alignItems:'flex-end'}}>Forgot Password</Text>
+            
+          </View>
+          </View>
 
       <View style={styles.cont2}>
         <TouchableOpacity style={[styles.button,{backgroundColor:'#ff7966'}]} onPress={()=>alert("Button Pressed")}>
           <Text style={[styles.text,{color:'#ffffff'}]}>Get started, it’s free!</Text>
         </TouchableOpacity>
 
-        <Text style={{fontSize:20,marginTop:125, color:'#ffffff'}}>Do you have already an account?</Text>
+        <Text style={{fontSize:20,marginTop:125, color:'#ffffff'}}>Don't have an account?</Text>
 
-        <TouchableOpacity style={[styles.button,{backgroundColor:'#323239', marginTop:15}]} onPress={()=>navigate("EmailSignIn")}>
-          <Text style={[styles.text,{color:'#ffffff'}]}>Sign In</Text>
+        <TouchableOpacity style={[styles.button,{backgroundColor:'#323239', marginTop:15}]} onPress={()=>navigate("EmailSignUp")}>
+          <Text style={[styles.text,{color:'#ffffff'}]}>Sign Up</Text>
         </TouchableOpacity>
       </View>
 
@@ -72,6 +80,10 @@ const styles = StyleSheet.create({
     text:{
       fontWeight:'bold',
       fontSize:20
+    },
+    row:{
+        flexDirection:'row',
+        justifyContent:'center'
     }
 
 })
