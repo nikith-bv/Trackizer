@@ -1,0 +1,2 @@
+npm i --save react-native-circular-progress react-native-svg
+react-native link react-native-svg
