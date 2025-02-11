@@ -14,6 +14,8 @@
 5. 7-feb
   Developed SignIn page + Navigation through the 3 components.
 
+6. 10-feb
+  Developed Home page Tracker View
 6. 11-feb
   Developed the Toggle Views without Scroll
 
