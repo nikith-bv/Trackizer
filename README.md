@@ -16,8 +16,9 @@
 
 6. 10-feb
   Developed Home page Tracker View
-6. 11-feb
-  Developed the Toggle Views without Scroll
+
+7. 11-feb
+  Developed the Toggle Views with Scroll
 
   
          

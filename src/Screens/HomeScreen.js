@@ -81,33 +81,35 @@ export default function HomeScreen() {
 
                     <View style={styles.subscriptionBox}>
                         <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/Spotify_Logo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Spotify</Text>
+                            <Image source={require("../../assets/YTPremiumLogo.png")} style={styles.appLogos}/>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Youtube Premium</Text>
                         </View>
                         <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$5.99</Text>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$18.99</Text>
                         </View>
                     </View>
 
                     <View style={styles.subscriptionBox}>
                         <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/Spotify_Logo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Spotify</Text>
+                            <Image source={require("../../assets/OneDriveLogo.png")} style={styles.appLogos}/>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Microsoft OneDrive</Text>
                         </View>
                         <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$5.99</Text>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$29.99</Text>
                         </View>
                     </View>
 
                     <View style={styles.subscriptionBox}>
                         <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/Spotify_Logo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Spotify</Text>
+                            <Image source={require("../../assets/Netflix_Logo.png")} style={styles.appLogos}/>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Netflix</Text>
                         </View>
                         <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$5.99</Text>
+                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$37.99</Text>
                         </View>
                     </View>
+
+                    
 
                 </ScrollView>
                 ):(
@@ -254,11 +256,12 @@ const styles = StyleSheet.create({
     },
     SubDataContainer:{
         marginTop:15,
-        paddingBottom:50,
+        paddingBottom:500,
+        marginBottom:5,
         
     },
     subDataDirectionsLeft:{
-        flex:1,
+        flex:2,
         flexDirection:'row',
         alignItems:'center',
         padding:10
