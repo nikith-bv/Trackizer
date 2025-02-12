@@ -7,6 +7,7 @@ import EmailSignUpComponent from './src/Components/EmailSignUp';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EmailSignIn from './src/Components/EmailSignIn';
 import HomeScreen from './src/Screens/HomeScreen';
+import DateCard from './src/Components/DateCard';
 
 const Stack = createNativeStackNavigator();
 

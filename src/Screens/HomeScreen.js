@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { Ionicons } from '@expo/vector-icons';
+import HomeBills from '../Components/HomeBills';
 
 export default function HomeScreen() {
 
@@ -113,13 +114,7 @@ export default function HomeScreen() {
 
                 </ScrollView>
                 ):(
-                    <View style={styles.SubDataContainer}>
-                        <View style={styles.subscriptionBox}>
-                            <Image source={require("../../assets/Netflix_Logo.png")}/>
-                            <Text> Spotify</Text>
-                            <Text>$5.99</Text>
-                        </View>
-                    </View>
+                    <HomeBills/>
                 )
             }
                 
@@ -264,7 +259,7 @@ const styles = StyleSheet.create({
         flex:2,
         flexDirection:'row',
         alignItems:'center',
-        padding:10
+        paddingLeft:10
     },
     subDataDirectionsRight:{
         flex:1,
