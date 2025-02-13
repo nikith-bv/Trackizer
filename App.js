@@ -8,12 +8,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EmailSignIn from './src/Components/EmailSignIn';
 import HomeScreen from './src/Screens/HomeScreen';
 import DateCard from './src/Components/DateCard';
+import BottomNavBar from './src/Components/BottomNavBar';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <HomeScreen/>
+    <BottomNavBar/>
     
   );
 }

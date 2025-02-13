@@ -22,5 +22,3 @@
 
 8. 12-feb
   Added a component for Upcoming Bills Section using a card with props
-  
-         
