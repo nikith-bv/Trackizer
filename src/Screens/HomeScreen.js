@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     },
     SubDataContainer:{
         marginTop:15,
-        paddingBottom:500,
+        paddingBottom:550,
         marginBottom:5,
         
     },

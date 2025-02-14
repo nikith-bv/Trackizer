@@ -3,13 +3,13 @@ import { StyleSheet, Text, View, Button, Linking, Image,TouchableOpacity } from 
 import LoginScreen from './src/Screens/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 
-import EmailSignUpComponent from './src/Components/EmailSignUp';
+//import EmailSignUpComponent from './src/Components/EmailSignUp';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import EmailSignIn from './src/Components/EmailSignIn';
+//import EmailSignIn from './src/Components/EmailSignIn';
 import HomeScreen from './src/Screens/HomeScreen';
-import DateCard from './src/Components/DateCard';
+//import DateCard from './src/Components/DateCard';
 import BottomNavBar from './src/Components/BottomNavBar';
-
+//import { ExpoRoot } from 'expo-router';
 const Stack = createNativeStackNavigator();
 
 export default function App() {

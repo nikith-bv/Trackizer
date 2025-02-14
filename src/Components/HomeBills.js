@@ -17,7 +17,7 @@ export default function HomeBills() {
         
         <View style={styles.subscriptionBox}>
             <View style={styles.subDataDirectionsLeft}>
-                <DateCard month="Jun" date="25"/>
+            <DateCard month="Jun" date="25"/>
                 <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Youtube Premium</Text>
             </View>
             <View style={styles.subDataDirectionsRight}>
