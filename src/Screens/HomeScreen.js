@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View,Image, Button, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, View,Image, Button, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaView } from 'react-native-safe-area-context'
 import HomeBills from '../Components/HomeBills';
 
 export default function HomeScreen() {
@@ -11,115 +12,114 @@ export default function HomeScreen() {
 
   return (
 
-    <SafeAreaView style={styles.main} edges={["left", "right", "bottom"]}>
-    <View style={styles.container}>
-        
+    <SafeAreaView style={styles.main} >
+        <StatusBar backgroundColor='#282832' style='light'/>
+        <View style={styles.container}>
         <Ionicons name="settings-outline" size={24} color="black" style={styles.vectorIcon}/>
-        <AnimatedCircularProgress
-        size={280}
-        width={7}
-        fill={85}
-        style={styles.tracker}
-        rotation={225}
-        tintColor="#FF7966"
-        arcSweepAngle={270}
-        lineCap='round'
-        tintTransparency={true}
-        backgroundColor='rgba(131,131,156,0.4)'
-        dashedBackground={{width:2,gap:2}}
-        onAnimationComplete={() => console.log('onAnimationComplete')}
-         />
-        <Image source={require('../../assets/logo.png')} style={styles.logo}/>
-        <StatusBar style='auto'/>
-        <Text style={styles.amount}>$1,235</Text>
-        <Text style={styles.text}>This month bills</Text>
-        <TouchableOpacity style={styles.roundButton} onPress={()=>alert("Button Pressed")}>
-                <Text style={styles.budgetText} >See your budget</Text>
-        </TouchableOpacity>
-
-        <View style={styles.horizontalSquares}>
-            <View style={styles.squares}>
-                <Text style={styles.squareText}>Active Subs</Text>
-                <Text style={styles.squareVal}>12</Text>
-            </View>
-            <View style={styles.squares}>
-                <Text style={styles.squareText}>Highest Subs</Text>
-                <Text style={styles.squareVal}>$ 19.99</Text>
-            </View>
-            <View style={styles.squares}>
-                <Text style={styles.squareText}>Lowest Subs</Text>
-                <Text style={styles.squareVal}>$ 5.99</Text>
-            </View>
-        </View>
-        </View>
-
-        <View style={styles.subData}>
-
-            <View style={styles.toggleContainer}>
-                <TouchableOpacity style={[styles.toggleButton, activeTab==='subscriptions' && styles.activeButton]} 
-                    onPress={()=>setActiveTab("subscriptions")}>
-                    <Text style={[styles.inActiveButtonText, activeTab==='subscriptions'&& styles.activeText]}>Your Subscriptions</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={[styles.toggleButton, activeTab==="Bills" && styles.activeButton]} 
-                    onPress={()=> setActiveTab("Bills")}>
-                    <Text style={[styles.inActiveButtonText, activeTab==='Bills'&& styles.activeText]}>Upcoming Bills</Text>
-                </TouchableOpacity>
-            </View>
-
+            <AnimatedCircularProgress
+            size={280}
+            width={7}
+            fill={85}
+            style={styles.tracker}
+            rotation={225}
+            tintColor="#FF7966"
+            arcSweepAngle={270}
+            lineCap='round'
+            tintTransparency={true}
+            backgroundColor='rgba(131,131,156,0.4)'
+            dashedBackground={{width:2,gap:2}}
+            onAnimationComplete={() => console.log('onAnimationComplete')}
+            />
+            <Image source={require('../../assets/logo.png')} style={styles.logo}/>
             
-                {activeTab==="subscriptions" ?(
-                <ScrollView contentContainerStyle={styles.SubDataContainer}>
-                    <View style={styles.subscriptionBox}>
-                        <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/Spotify_Logo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Spotify</Text>
-                        </View>
-                        <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$5.99</Text>
-                        </View>
-                    </View>
+            <Text style={styles.amount}>$1,235</Text>
+            <Text style={styles.text}>This month bills</Text>
+            <TouchableOpacity style={styles.roundButton} onPress={()=>alert("Button Pressed")}>
+                    <Text style={styles.budgetText} >See your budget</Text>
+            </TouchableOpacity>
 
-                    <View style={styles.subscriptionBox}>
-                        <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/YTPremiumLogo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Youtube Premium</Text>
-                        </View>
-                        <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$18.99</Text>
-                        </View>
-                    </View>
+            <View style={styles.horizontalSquares}>
+                <View style={styles.squares}>
+                    <Text style={styles.squareText}>Active Subs</Text>
+                    <Text style={styles.squareVal}>12</Text>
+                </View>
+                <View style={styles.squares}>
+                    <Text style={styles.squareText}>Highest Subs</Text>
+                    <Text style={styles.squareVal}>$ 19.99</Text>
+                </View>
+                <View style={styles.squares}>
+                    <Text style={styles.squareText}>Lowest Subs</Text>
+                    <Text style={styles.squareVal}>$ 5.99</Text>
+                </View>
+            </View>
+        </View>
 
-                    <View style={styles.subscriptionBox}>
-                        <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/OneDriveLogo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Microsoft OneDrive</Text>
-                        </View>
-                        <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$29.99</Text>
-                        </View>
-                    </View>
+            <View style={styles.subData}>
 
-                    <View style={styles.subscriptionBox}>
-                        <View style={styles.subDataDirectionsLeft}>
-                            <Image source={require("../../assets/Netflix_Logo.png")} style={styles.appLogos}/>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Netflix</Text>
-                        </View>
-                        <View style={styles.subDataDirectionsRight}>
-                            <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$37.99</Text>
-                        </View>
-                    </View>
+                <View style={styles.toggleContainer}>
+                    <TouchableOpacity style={[styles.toggleButton, activeTab==='subscriptions' && styles.activeButton]} 
+                        onPress={()=>setActiveTab("subscriptions")}>
+                        <Text style={[styles.inActiveButtonText, activeTab==='subscriptions'&& styles.activeText]}>Your Subscriptions</Text>
+                    </TouchableOpacity>
 
-                    
+                    <TouchableOpacity style={[styles.toggleButton, activeTab==="Bills" && styles.activeButton]} 
+                        onPress={()=> setActiveTab("Bills")}>
+                        <Text style={[styles.inActiveButtonText, activeTab==='Bills'&& styles.activeText]}>Upcoming Bills</Text>
+                    </TouchableOpacity>
+                </View>
 
-                </ScrollView>
-                ):(
-                    <HomeBills/>
-                )
-            }
                 
-            
-        </View>
+                    {activeTab==="subscriptions" ?(
+                    <ScrollView contentContainerStyle={styles.SubDataContainer}>
+                        <View style={styles.subscriptionBox}>
+                            <View style={styles.subDataDirectionsLeft}>
+                                <Image source={require("../../assets/Spotify_Logo.png")} style={styles.appLogos}/>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Spotify</Text>
+                            </View>
+                            <View style={styles.subDataDirectionsRight}>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$5.99</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.subscriptionBox}>
+                            <View style={styles.subDataDirectionsLeft}>
+                                <Image source={require("../../assets/YTPremiumLogo.png")} style={styles.appLogos}/>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Youtube Premium</Text>
+                            </View>
+                            <View style={styles.subDataDirectionsRight}>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$18.99</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.subscriptionBox}>
+                            <View style={styles.subDataDirectionsLeft}>
+                                <Image source={require("../../assets/OneDriveLogo.png")} style={styles.appLogos}/>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Microsoft OneDrive</Text>
+                            </View>
+                            <View style={styles.subDataDirectionsRight}>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$29.99</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.subscriptionBox}>
+                            <View style={styles.subDataDirectionsLeft}>
+                                <Image source={require("../../assets/Netflix_Logo.png")} style={styles.appLogos}/>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>     Netflix</Text>
+                            </View>
+                            <View style={styles.subDataDirectionsRight}>
+                                <Text style={{color:'#ffffff', fontSize:22, fontWeight:'bold'}}>$37.99</Text>
+                            </View>
+                        </View>
+
+                        
+
+                    </ScrollView>
+                    ):(
+                        <HomeBills/>
+                    )
+                }
+                    
+            </View>
     </SafeAreaView>
   )
 }
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
         color:'#ffffff'
     },
     vectorIcon:{
-        marginTop:52,
+        marginTop:1,
         marginLeft:290
     },
     toggleContainer:{

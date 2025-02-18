@@ -21,3 +21,6 @@
 
 7. 14-feb
   Bottom nav bar using 'react-navigation'
+
+8. 18-feb
+  Spending and Budgets Page
