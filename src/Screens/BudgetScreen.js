@@ -6,72 +6,78 @@ import { StatusBar } from 'expo-status-bar'
 import Svg, { Path, Defs, LinearGradient, Stop, G, Circle } from "react-native-svg";
 import * as d3 from "d3-shape";
 
-const createArc = (startAngle, endAngle, radius) => {
-  return d3
-    .arc()
-    .innerRadius(radius * 0.9) // Adjust thickness
-    .outerRadius(radius)
-    .startAngle(startAngle)
-    .endAngle(endAngle)
-    .cornerRadius(19)(); // Smooth edges
-};
+const BudgetScreen = () => {
+  const radius = 100; // Radius of the semi-circle
+  const strokeWidth = 4; // Thickness of the arc
+  const cx = 150; // X-center of the SVG
+  const cy = 150; // Y-center of the SVG
+  const startAngle = Math.PI; // Start from π (leftmost point)
+  const EndAngle = 0; // Start from π (leftmost point)
+  const arc1Angle = 20*Math.PI/180; // 20 degrees in radians
+  const arc2Angle = 35*Math.PI/180; // 35 degrees in radians
 
-export default function BudgetScreen() {
-  console.log(Math.PI)
-  const radius = 105; // Background semi-circle size
-  const strokeWidth = 1; // Arc thickness
-  const dataValues = [20, 30, 50, 60]; // Example values (cyan, orange, purple, grey)
-  const colors = ["#16E4A9", "#FF835D", "#9D71FF", "#5A5A5A"]; // Arc colors
-
-  // Convert values to angles in the π (half-circle) range
-  const total = dataValues.reduce((acc, val) => acc + val, 0);
-  const angles = dataValues.map((val) => (val / total) * Math.PI);
-
-  let startAngle = Math.PI; // Start at 180 degrees (leftmost)
-  const arcs = angles.map((angle, index) => {
-    const path = createArc(startAngle, startAngle + angle, radius);
-    startAngle += angle; // Move to the next arc's start
-    return { path, color: colors[index] };
+  const polarToCartesian = (angle) => ({
+    x: cx + radius * Math.cos(angle ),
+    y: cy + radius * Math.sin(angle ),
   });
+
+  const semiCircleStart = polarToCartesian(startAngle)
+  const semiCircleEnd = polarToCartesian(EndAngle)
+  const arc1Start = polarToCartesian(startAngle); // Leftmost point
+  const arc1End = polarToCartesian(startAngle + arc1Angle); // End of first arc
+  const arc2Start = polarToCartesian(startAngle + arc1Angle+0.19); // End of first arc
+  const arc2End = polarToCartesian(startAngle + arc1Angle + arc2Angle+0.19); // End of second arc
+  const arc3Start = polarToCartesian(startAngle + arc1Angle+0.19); // End of first arc
+  const arc3End = polarToCartesian(startAngle + arc1Angle + arc2Angle+0.19); // End of second arc
 
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
-       <StatusBar style='light' />
-        <Ionicons name="settings-outline" size={24} color="black" style={styles.vectorIcon}/>
-        <Text style={styles.heading}>Spending & Budgets</Text>
+    <View style={styles.container}>
+      <Svg width={cx * 2} height={cy+150}>
+        {/* Draw the Grey Semi-Circle */}
+        <Path
+          d={`
+            M ${semiCircleStart.x},${semiCircleStart.y} 
+            A ${radius},${radius} 0 0 1 ${semiCircleEnd.x},${semiCircleEnd.y}
+          `}
+          stroke="grey"
+          strokeWidth={strokeWidth}
+          fill="none"
+          strokeLinecap="round" // Smooth edges
+        />
 
-        <View style={styles.container}>
-          
-          <Svg width={radius * 2 + strokeWidth} height={radius + strokeWidth+110}>
-            <G transform={`translate(${radius + strokeWidth / 2},${radius})`}>
-              {/* Background Semi-Circle */}
-              <Path
-                d={createArc(0, 1* Math.PI/2, radius)}
-                fill="none"
-                stroke="#ffffff" // Dark grey background
-                strokeWidth={strokeWidth}
-                strokeLinecap="round"
-              />
+        {/* First Arc (20°) */}
+        <Path
+          d={`
+            M ${arc1Start.x},${arc1Start.y} 
+            A ${radius},${radius} 0 0 1 ${arc1End.x},${arc1End.y}
+          `}
+          stroke="cyan"
+          strokeWidth={16}
+          fill="none"
+          strokeLinecap="round"
+        />
 
-              {/* Foreground Arcs (Cyan, Orange, Purple, Grey) 
-              {arcs.map((arc, index) => (
-                <Path
-                  key={index}
-                  d={arc.path}
-                  fill="none"
-                  stroke={arc.color}
-                  strokeWidth={strokeWidth}
-                  strokeLinecap="round"
-                />
-              ))}*/}
-            </G>
-          </Svg>
-      </View>
+        {/* First Arc (20°) */}
+        <Path
+          d={`
+            M ${arc2Start.x},${arc2Start.y} 
+            A ${radius},${radius} 0 0 1 ${arc2End.x},${arc2End.y}
+          `}
+          stroke="black"
+          strokeWidth={16}
+          fill="none"
+          strokeLinecap="round"
+        />
         
-    </SafeAreaView>
-  )
-}
+      </Svg>
+    </View>
+  );
+};
+
+export default BudgetScreen;
+
+
 
 const styles = StyleSheet.create({
   mainContainer:{

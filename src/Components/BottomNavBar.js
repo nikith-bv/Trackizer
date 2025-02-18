@@ -56,7 +56,7 @@ export default function BottomNavBar() {
                 shadowOpacity: 0.25,
                 shadowRadius: 10,
             }
-        }} initialRouteName='Home'>
+        }} initialRouteName='Budget'>
             <Tabs.Screen name="Home" 
                 options={{
                     tabBarIcon:({focused})=>(
