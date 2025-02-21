@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,Image, Button, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View,Image, TouchableOpacity, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
