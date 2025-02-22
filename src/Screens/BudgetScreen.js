@@ -124,7 +124,7 @@ const BudgetScreen = () => {
             <Image source={require('../../assets/Entertainment.png')}/>
           </View>
           <View style={styles.CategoriesData2}>
-            <Text style={{fontSize:20, color:'#ffffff'}}>Auto & Transport</Text>
+            <Text style={{fontSize:20, color:'#ffffff'}}>Entertainment</Text>
             <Text style={{fontSize:16, color:'#53535d'}}> $375 left to spend </Text>
           </View>
           <View style={styles.CategoriesData3}>
@@ -147,7 +147,7 @@ const BudgetScreen = () => {
       <View style={[styles.CategoriesContainer,{marginTop:10}]}>
         <View style={styles.HorizontalContainer}>
           <View style={styles.CategoriesData1}>
-            <Image source={require('../../assets/CarTrans.png')}/>
+            <Image source={require('../../assets/Security.png')}/>
           </View>
           <View style={styles.CategoriesData2}>
             <Text style={{fontSize:20, color:'#ffffff'}}>Auto & Transport</Text>

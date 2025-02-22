@@ -17,18 +17,18 @@ export default function HomeScreen() {
         <View style={styles.container}>
         <Ionicons name="settings-outline" size={24} color="black" style={styles.vectorIcon}/>
             <AnimatedCircularProgress
-            size={280}
-            width={7}
-            fill={85}
-            style={styles.tracker}
-            rotation={225}
-            tintColor="#FF7966"
-            arcSweepAngle={270}
-            lineCap='round'
-            tintTransparency={true}
-            backgroundColor='rgba(131,131,156,0.4)'
-            dashedBackground={{width:2,gap:2}}
-            onAnimationComplete={() => console.log('onAnimationComplete')}
+                size={280}
+                width={7}
+                fill={85}
+                style={styles.tracker}
+                rotation={225}
+                tintColor="#FF7966"
+                arcSweepAngle={270}
+                lineCap='round'
+                tintTransparency={true}
+                backgroundColor='rgba(131,131,156,0.4)'
+                dashedBackground={{width:2,gap:2}}
+                onAnimationComplete={() => console.log('onAnimationComplete')}
             />
             <Image source={require('../../assets/logo.png')} style={styles.logo}/>
             
@@ -59,7 +59,7 @@ export default function HomeScreen() {
                 <View style={styles.toggleContainer}>
                     <TouchableOpacity style={[styles.toggleButton, activeTab==='subscriptions' && styles.activeButton]} 
                         onPress={()=>setActiveTab("subscriptions")}>
-                        <Text style={[styles.inActiveButtonText, activeTab==='subscriptions'&& styles.activeText]}>Your Subscriptions</Text>
+                        <Text style={[styles.inActiveButtonText, activeTab==='subscriptions' && styles.activeText]}>Your Subscriptions</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={[styles.toggleButton, activeTab==="Bills" && styles.activeButton]} 
