@@ -1,48 +1,83 @@
-import { StyleSheet, Text,View, Image, Dimensions } from 'react-native'
-import React from 'react'
-import Animated, { Extrapolation, interpolate, useAnimatedStyle } from 'react-native-reanimated';
+import { StyleSheet, Text,View, Image, Dimensions,useWindowDimensions, FlatList } from 'react-native'
+import React, { useState } from 'react'
+import Animated, { Extrapolation, interpolate,useSharedValue,useAnimatedScrollHandler, useAnimatedStyle } from 'react-native-reanimated';
 import {scrollX} from './sharedValue'
 
-const {width} = Dimensions.get('screen'); 
-const SliderItem = ({item,index, scrollX}) => {
-  const rnAnimatedStyle = useAnimatedStyle(()=>{
-    return{
-      transform:[
-        {
-          translateX:interpolate(
-            scrollX.value,
-            [(index-1)*width,index*width,(index+1)*width],
-            [-width*0.25,0,width*0.25],
-            Extrapolation.CLAMP
-          )
-        },
-        {
-          scale:interpolate(
-            scrollX.value,
-            [(index-1) *width, index*width,(index+1)*width],
-            [0.9,1,0.9],
-            Extrapolation.CLAMP
-          )
-        }
-      ]
+
+
+
+const SliderItem = ({info}) => {
+  //Props is just an object, It has the data in it enclosed in info property
+  //Want to directly extract the data then use the {info}=> destructes the array and extracts the info data as o/p.
+  const {width} = useWindowDimensions();
+  const SIZE = width*0.55;  
+  const [newData] = useState([{key:'spacer-left'}, ...info ,{key:'spacer-right'}])
+  const SPACER = (width - SIZE)/2
+  const x = useSharedValue(0)
+  const onScroll = useAnimatedScrollHandler({
+    onScroll: event => {
+      x.value = event.contentOffset.x
     }
   })
+ 
+  
+  const AnimatedItem =({item,index,x})=>{
+    const rnAnimatedStyle = useAnimatedStyle(()=>{
+      const scale = interpolate(
+        x.value,
+        [(index-2)*SIZE,(index-1)*SIZE,(index)*SIZE],
+        [0.7,1,0.7]
+      )
+      return{
+        transform:[{scale}]
+      }
+    })
+    if(!item.img) {
+      return <View style={{width:SPACER}} key={index}/>;
+    }
+    return(
+    <View style={{width:SIZE}} key={index}>
+      <Animated.View style={[styles.imageContainer, rnAnimatedStyle]}>
+        <Image source={item.img} style={styles.image}/>
+        <Text style={styles.text}>{item.title}</Text>
+      </Animated.View>
+    </View>
+  )
+  }
+
   return (
-    <Animated.View style={[styles.itemContainer, rnAnimatedStyle]}>
-      <Image source={item.img} style={{width:50, height:50}}/>
-      <Text>{item.title}</Text>
-    </Animated.View>
+    <Animated.FlatList
+    data={newData}
+    renderItem={({item,index})=> <AnimatedItem item={item} index={index} x={x}/>}
+    horizontal
+    showsHorizontalScrollIndicator={false}
+    bounces={false}
+    scrollEventThrottle={16}
+    snapToInterval={SIZE}
+    decelerationRate={'fast'}
+    onScroll={onScroll}
+    />
   )
 }
 
 export default SliderItem
 
 const styles = StyleSheet.create({
-    itemContainer:{
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:100,
-        width:width,
-        gap:15
+    imageContainer:{ 
+      overflow:'hidden',
+      alignItems:'center',
+      justifyContent:'center',
+      },
+    image:{
+      width:"70%", 
+      height:undefined, 
+      resizeMode:"contain",
+      aspectRatio:1
+    },
+    text: {
+      marginTop: 5, // Adds spacing between image and text
+      fontSize: 16, 
+      fontWeight: 'bold',
+      color: '#333',
     }
 })
