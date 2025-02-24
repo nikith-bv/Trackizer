@@ -9,13 +9,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/Screens/HomeScreen';
 //import DateCard from './src/Components/DateCard';
 import BottomNavBar from './src/Components/BottomNavBar';
+// import SliderItem from './src/Components/SliderItem';
+import SliderLogos from './src/Components/SliderLogos';
 //import { ExpoRoot } from 'expo-router';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     
-    <BottomNavBar/>
+    <SliderLogos/>
     
   );
 }
