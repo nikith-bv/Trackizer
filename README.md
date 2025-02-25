@@ -27,3 +27,6 @@
 
 9. 20(abt date-fns) 21, 22-feb
   Calendar(date-fns, dropdown, flatlist)
+
+10. 24- carousel, 25 feb
+  New Subscription(Carousel with reanimated)
