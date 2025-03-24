@@ -34,3 +34,47 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# Android-specific files
+/android/.gradle/
+/android/build/
+/android/app/build/
+/android/app/release/
+/android/app/debug/
+/android/.cxx/
+/android/.idea/
+/android/local.properties
+/android/app/src/debug/
+/android/app/src/androidTest/
+/android/app/src/test/
+/android/app/src/main/assets/index.android.bundle
+/android/app/src/main/assets/shell-app-manifest.json
+/android/app/src/main/assets/shell-app.bundle
+/android/gradle/wrapper/gradle-wrapper.jar
+/android/gradle/wrapper/gradle-wrapper.properties.lock
+/android/app/src/main/res/raw/
+/android/keystore/
+
+# Build and cache-related files
+.gradle/
+*.log
+*.lock
+*.bak
+*.swp
+*.iml
+
+# IDE / editor-specific
+.idea/
+.vscode/
+*.iml
+
+# Credentials and sensitive data
+*.keystore
+*.jks
+*.key
+*.p8
+*.p12
+*.pem
+*.mobileprovision
+
+

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481912555264",
+    "project_id": "trackizer-902a2",
+    "storage_bucket": "trackizer-902a2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481912555264:android:4b6c33a6978b7c7c5315e5",
+        "android_client_info": {
+          "package_name": "com.anonymous.HW"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDdpTjLT0uZUlcRm7HW-dnqExBRT-u3Uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
